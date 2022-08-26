@@ -1,19 +1,31 @@
 {
-  "posts": [
+  "Users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "Name": "vishal",
+      "Email": "vishal@gmail.com",
+      "Phone": 123654789,
+      "DOB": "1999-08-04",
+      "Gender": "Male",
+      "Hobbies": "Coding"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "Name": "pratik",
+      "Email": "pratik@gmail.com",
+      "Phone": 987456321,
+      "DOB": "1998-01-15",
+      "Gender": "Male",
+      "Hobbies": "Reading Books"
+    },
+    {
+      "id": 3,
+      "Name": "Saurav",
+      "Email": "saurav@gmail.com",
+      "Phone": 569874123,
+      "DOB": "1999-05-19",
+      "Gender": "Male",
+      "Hobbies": "Listening Podcast"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

@@ -1,5 +1,4 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -7,26 +6,19 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export function UsersList() {
-  return <DenseTable />;
-}
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/Users")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
-
-const 
-export default function DenseTable() {
+  console.log(data);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -41,18 +33,19 @@ export default function DenseTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {data.map((elem) => (
             <TableRow
-              key={row.name}
+              key={elem.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {elem.Name}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{elem.Email}</TableCell>
+              <TableCell align="right">{elem.Phone}</TableCell>
+              <TableCell align="right">{elem.DOB}</TableCell>
+              <TableCell align="right">{elem.Gender}</TableCell>
+              <TableCell align="right">{elem.Hobbies}</TableCell>
             </TableRow>
           ))}
         </TableBody>
