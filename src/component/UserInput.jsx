@@ -111,8 +111,14 @@ export const UserInput = () => {
       </FormGroup>
       <br />
       <br />
+      <Button
+        style={{ backgroundColor: "#35c94b", color: "white", width: "150px" }}
+        onClick={handleClick}
+      >
+        ADD
+      </Button>
       <br />
-      <Button onClick={handleClick}>ADD</Button>
+      <br />
     </Box>
   );
 };
